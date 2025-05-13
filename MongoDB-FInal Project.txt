@@ -1,0 +1,340 @@
+use Project
+
+db.Animals.drop()
+
+db.createCollection("Animals")
+
+db.Animals.insertMany([	{"_id": 1, "animal_name": "Lion", "medical": "Y", "birth_date": ISODate("2015-02-14"), "origin": "Africa", "type": "Mammal"},
+						{"_id": 2, "animal_name": "Zebra", "medical": "N", "birth_date": ISODate("2018-09-22"), "origin": "Africa", "type": "Mammal"},
+						{"_id": 3, "animal_name": "Giraffe", "medical": "N", "birth_date": ISODate("2012-01-07"), "origin": "Africa", "type": "Mammal"},
+						{"_id": 4, "animal_name": "Chimpanzee", "medical": "Y", "birth_date": ISODate("2009-06-20"), "origin": "Africa", "type": "Mammal"},
+						{"_id": 5, "animal_name": "Panda", "medical": "N", "birth_date": ISODate("2017-11-11"), "origin": "China", "type": "Mammal"},
+						{"_id": 6, "animal_name": "Red Panda", "medical": "Y", "birth_date": ISODate("2020-03-03"), "origin": "Himalayas", "type": "Mammal"},
+						{"_id": 7, "animal_name": "Koala", "medical": "N", "birth_date": ISODate("2016-05-18"), "origin": "Australia", "type": "Marsupial"},
+						{"_id": 8, "animal_name": "Kangaroo", "medical": "Y", "birth_date": ISODate("2019-08-09"), "origin": "Australia", "type": ["Marsupial", "Herbivore"]},
+						{"_id": 9, "animal_name": "Wombat", "medical": "N", "birth_date": ISODate("2021-02-01"), "origin": "Australia", "type": "Marsupial"},
+						{"_id": 10, "animal_name": "Tasmanian Devil", "medical": "Y", "birth_date": ISODate("2018-12-25"), "origin": "Tasmania", "type": "Marsupial"},
+						{"_id": 11, "animal_name": "Emperor Penguin", "medical": "N", "birth_date": ISODate("2020-07-14"), "origin": "Antarctica", "type": "Bird"},
+						{"_id": 12, "animal_name": "Bald Eagle", "medical": "Y", "birth_date": ISODate("2015-04-02"), "origin": "North America", "type": "Bird"},
+						{"_id": 13, "animal_name": "Toucan", "medical": "N", "birth_date": ISODate("2019-01-21"), "origin": "South America", "type": "Bird"},
+						{"_id": 14, "animal_name": "Macaw", "medical": "N", "birth_date": ISODate("2017-10-26"), "origin": "South America", "type": "Bird"},
+						{"_id": 15, "animal_name": "King Cobra", "medical": "Y", "birth_date": ISODate("2012-09-05"), "origin": "South Asia", "type": "Reptile"},
+						{"_id": 16, "animal_name": "Boa Constrictor", "medical": "N", "birth_date": ISODate("2021-05-12"), "origin": "Mexico", "type": "Reptile"},
+						{"_id": 17, "animal_name": "Komodo Dragon", "medical": "Y", "birth_date": ISODate("2018-02-17"), "origin": "Indonesia", "type": "Reptile"},
+						{"_id": 18, "animal_name": "Green Anaconda", "medical": "N", "birth_date": ISODate("2016-08-30"), "origin": "South America", "type": "Reptile"},
+						{"_id": 19, "animal_name": "Golden Poison Frog", "medical": "Y", "birth_date": ISODate("2020-01-10"), "origin": "South America", "type": "Amphibian"},
+						{"_id": 20, "animal_name": "Axolotl", "medical": "N", "birth_date":ISODate("2020-02-26"), "origin": "Mexico", "type": "Amphibian"},
+						{"_id": 21, "animal_name": "Lion", "medical": "N", "birth_date": ISODate("2023-04-11"), "origin": "Africa", "type": "Mammal"},
+						{"_id": 22, "animal_name": "Zebra", "medical": "Y", "birth_date": ISODate("2022-06-21"), "origin": "Africa", "type": "Mammal"},
+						{"_id": 23, "animal_name": "Kangaroo", "medical": "N", "birth_date": ISODate("2020-04-05"), "origin": "Australia", "type": ["Marsupial", "Herbivore"]},
+						{"_id": 24, "animal_name": "Emperor Penguin", "medical": "Y", "birth_date": ISODate("2021-05-08"), "origin": "Antarctica", "type": "Bird"},
+						{"_id": 25, "animal_name": "Bald Eagle", "medical": "N", "birth_date": ISODate("2018-11-19"), "origin": "North America", "type": "Bird"},
+						{"_id": 26, "animal_name": "Toucan", "medical": "Y", "birth_date": ISODate("2022-03-07"), "origin": "South America", "type": "Bird"},
+						{"_id": 27, "animal_name": "King Cobra", "medical": "N", "birth_date": ISODate("2019-02-14"), "origin": "South Asia", "type": "Reptile"},
+						{"_id": 28, "animal_name": "Komodo Dragon", "medical": "N", "birth_date": ISODate("2021-11-23"), "origin": "Indonesia", "type": "Reptile"},
+						{"_id": 29, "animal_name": "Komodo Dragon", "medical": "Y", "birth_date": ISODate("2022-09-09"), "origin": "Indonesia", "type": "Reptile"},
+						{"_id": 30, "animal_name": "Axolotl", "medical": "Y", "birth_date": ISODate("2021-07-10"), "origin": "Mexico", "type": "Amphibian"}])
+
+db.Visitors.drop()
+db.createCollection("Visitors")
+
+db.Visitors.insertOne({ "_id": 40,"First_name": "Alice", "Last_name": "Johnson", "Visit_date": ISODate("2024-06-15"), "Visited_Zoo": "Central Park Zoo", "Favorite_animal": ["Giraffe", "Panda"] })	
+db.Visitors.insertOne({ "_id": 41,"First_name": "Bob", "Last_name": "Williams", "Visit_date": ISODate("2024-06-12"), "Visited_Zoo": "Taronga Zoo", "Favorite_animal": ["Lion", "Zebra"] })	
+db.Visitors.insertOne({ "_id": 42,"First_name": "Charlie", "Last_name": "Garcia", "Visit_date": ISODate("2024-06-18"), "Visited_Zoo": "Tiergarten Schönbrunn", "Favorite_animal": ["Orangutan", "Koala"]})
+db.Visitors.insertMany([{ "_id": 43,"First_name": "David", "Last_name": "Miller", "Visit_date": ISODate("2024-06-10"), "Visited_Zoo": "Pairi Daiza", "Favorite_animal": ["Komodo Dragon", "King Cobra"] },
+						{ "_id": 44,"First_name": "Charlie", "Last_name": "Garcia", "Visit_date": ISODate("2024-07-18"), "Visited_Zoo": "Singapore Zoo", "Favorite_animal": ["Orangutan", "Koala"]},
+						{ "_id": 45,"First_name": "Emily", "Last_name": "Brown", "Visit_date": ISODate("2024-06-17"), "Visited_Zoo": "Central Park Zoo", "Favorite_animal": ["Emperor Penguin", "Toucan"] },
+						{ "_id": 46,"First_name": "Emily", "Last_name": "Brown", "Visit_date": ISODate("2024-07-17"), "Visited_Zoo":  "Taronga Zoo", "Favorite_animal": ["Emperor Penguin", "Toucan"] },
+						{ "_id": 47,"First_name": "Finn", "Last_name": "Davis", "Visit_date": ISODate("2024-06-14"), "Visited_Zoo": "Tiergarten Schönbrunn", "Favorite_animal": ["Chimpanzee", "Red Panda"] },
+						{ "_id": 48,"First_name": "Grace", "Last_name": "Clark", "Visit_date": ISODate("2024-06-16"), "Visited_Zoo": "Singapore Zoo", "Favorite_animal": ["Macaw", "Golden Poison Frog"] },
+						{ "_id": 49,"First_name": "Henry", "Last_name": "Lewis", "Visit_date": ISODate("2024-06-11"), "Visited_Zoo": "Central Park Zoo", "Favorite_animal": ["Lion", "Zebra"]}, 
+						{ "_id": 50,"First_name": "Isabel", "Last_name": "Wilson", "Visit_date": ISODate("2024-06-13"), "Visited_Zoo": "Taronga Zoo", "Favorite_animal": ["Koala", "Wombat"] },
+						{ "_id": 51,"First_name": "Jack", "Last_name": "Moore", "Visit_date": ISODate("2024-06-19"), "Visited_Zoo": "Singapore Zoo", "Favorite_animal": ["Tasmanian Devil", "Boa Constrictor"] },
+						{ "_id": 52,"First_name": "Olivia", "Last_name": "Taylor", "Visit_date": ISODate("2024-06-18"), "Visited_Zoo": "Central Park Zoo", "Favorite_animal": ["Giraffe", "Red Panda"] },
+						{ "_id": 53,"First_name": "Noah", "Last_name": "Allen", "Visit_date": ISODate("2024-06-15"), "Visited_Zoo":  "Tiergarten Schönbrunn", "Favorite_animal": ["King Cobra", "Green Anaconda"] },
+						{ "_id": 54,"First_name": "Sophia", "Last_name": "Baker", "Visit_date": ISODate("2024-06-12"), "Visited_Zoo": "Pairi Daiza","Favorite_animal": ["Panda"] },
+						{ "_id": 55,"First_name": "Liam", "Last_name": "King", "Visit_date": ISODate("2024-06-20"), "Visited_Zoo": "Taronga Zoo", "Favorite_animal": ["Kangaroo", "Koala"] },
+						{ "_id": 56,"First_name": "Ava", "Last_name": "Campbell", "Visit_date": ISODate("2024-06-11"), "Visited_Zoo": "Central Park Zoo", "Favorite_animal": ["Emperor Penguin", "Toucan"]} ,
+						{ "_id": 57,"First_name": "William", "Last_name": "Daniels", "Visit_date": ISODate("2024-06-13"), "Visited_Zoo": "Pairi Daiza", "Favorite_animal": ["Komodo Dragon", "Boa Constrictor"]}, 
+						{ "_id": 58,"First_name": "Mia", "Last_name": "Wright", "Visit_date": ISODate("2024-06-19"), "Visited_Zoo": "Tiergarten Schönbrunn", "Favorite_animal": ["Chimpanzee", "Orangutan"]}, 
+						{ "_id": 59,"First_name": "Ethan", "Last_name": "Garcia", "Visit_date": ISODate("2024-06-16"), "Visited_Zoo":  "Central Park Zoo", "Favorite_animal": ["Zebra", "Giraffe"]}, 
+						{ "_id": 60,"First_name": "Olivia", "Last_name": "Brown", "Visit_date": ISODate("2024-06-14"), "Visited_Zoo": "Taronga Zoo", "Favorite_animal": ["Bald Eagle", "Macaw"] },
+						{ "_id": 61,"First_name": "Noah", "Last_name": "Miller", "Visit_date": ISODate("2024-06-20"), "Visited_Zoo": "Pairi Daiza","Favorite_animal": ["Axoltol", "Golden Poison Frog"] },
+						{ "_id": 62,"First_name": "Sophia", "Last_name": "Baker", "Visit_date": ISODate("2024-06-17"), "Visited_Zoo": "Central Park Zoo", "Favorite_animal": ["Panda", "Red Panda"]},
+						{ "_id": 63,"First_name": "Liam", "Last_name": "King", "Visit_date": ISODate("2024-06-12"), "Visited_Zoo": "Singapore Zoo", "Favorite_animal": ["Tasmanian Devil", "Koala"]},
+						{ "_id": 64,"First_name": "Ava", "Last_name": "Campbell", "Visit_date": ISODate("2024-06-18"), "Visited_Zoo": "Tiergarten Schönbrunn", "Favorite_animal": ["Lion", "Koala"]}])
+
+db.Zoo.drop()
+db.createCollection("Zoo")
+
+db.Zoo.insertMany([ { "_id": 70, "Zoo_name": "Central Park Zoo", "City": "New York City", "Country": "USA", "Manager": "John Smith", "Ticket_price": 19.95,
+													"Animals":[1, 2, 3, 4, 5, 6],
+													"Visitors":[40, 45, 49, 52, 56, 59, 62],
+													"Employees":[{ "First_name": "Alice", "Last_name": "David", "Start_date": ISODate("2023-01-15"), "End_date": null, "Salary": 72500.00, "Job_title": "Zookeeper", "Specialty": ["Lion", "Zebra", "Giraffe"] },
+																{ "First_name": "Bob", "Last_name": "Hadar", "Start_date": ISODate("2022-06-01"), "End_date": null, "Salary": 65000.00, "Job_title": "Veterinarian", "Specialty": ["Chimpanzee", "Panda", "Red Panda"] },
+																{ "First_name": "Charlie", "Last_name": "Levin", "Start_date": ISODate("2021-12-20"), "End_date": ISODate("2024-03-31"),  "Salary": 58000.00, "Job_title": "Animal Trainer", "Specialty": ["Koala", "Kangaroo", "Wombat"]},
+																{ "First_name": "David", "Last_name": "Zafrani", "Start_date": ISODate("2024-05-10"), "End_date": null, "Salary": 48000.00, "Job_title": "Zookeeper Assistant", "Specialty": ["Tasmanian Devil", "Emperor Penguin", "Bald Eagle"]}]},
+					{ "_id": 71, "Zoo_name": "Taronga Zoo", "City": "Sydney", "Country": "Australia", "Manager": "Jane Doe", "Ticket_price": 35.00,
+													"Animals":[7, 8, 9, 10, 11, 12],
+													"Visitors":[41, 46, 50, 55, 60],
+													"Employees":[{ "First_name": "Emily", "Last_name": "Avioz", "Start_date": ISODate("2020-08-12"), "End_date": null, "Salary": 85000.00, "Job_title": "Head Curator", "Specialty": ["Toucan", "Macaw", "King Cobra"] }, 
+																{ "First_name": "Finn", "Last_name": "Laor", "Start_date": ISODate("2023-09-05"), "End_date": null, "Salary": 60000.00, "Job_title": "Herpetologist", "Specialty": ["Boa Constrictor", "Komodo Dragon", "Green Anaconda"] }, 
+																{ "First_name": "Grace", "Last_name": "Cohen", "Start_date": ISODate("2022-02-14"), "End_date": null, "Salary": 52000.00, "Job_title": "Aquarium Specialist", "Specialty": []},
+																{ "First_name": "Henry", "Last_name": "Zuck", "Start_date": ISODate("2021-10-26"), "End_date": null, "Salary": 78000.00, "Job_title": "Lead Veterinarian", "Specialty": ["Lion", "Zebra", "Elephant"] }]},
+					{ "_id": 72, "Zoo_name": "Tiergarten Schönbrunn", "City": "Vienna", "Country": "Austria", "Manager": "Anna Schmidt", "Ticket_price": 22.50,
+													"Animals":[13, 14, 15, 16, 17, 18],
+													"Visitors":[42, 47, 53, 58, 64],
+													"Employees":[{ "First_name": "Isabel", "Last_name": "Hindi", "Start_date": ISODate("2024-04-15"), "End_date": null, "Salary": 50000.00, "Job_title": "Animal Enrichment Specialist", "Specialty": ["Golden Poison Frog", "Axoltol"] }, 
+																{ "First_name": "Jack", "Last_name": "Black", "Start_date": ISODate("2023-07-01"), "End_date": null, "Salary": 62000, "Job_title": "Lead Veterinarian", "Specialty": ["Golden Poison Frog", "Axoltol"]},
+																{ "First_name": "Olivia", "Last_name": "Maor", "Start_date": ISODate("2022-05-09"), "End_date": null, "Salary": 45000.00, "Job_title": "Volunteer Coordinator", "Specialty": ["Lion", "Zebra", "Elephant"]},
+																{ "First_name": "Noah", "Last_name": "Cavilo", "Start_date": ISODate("2021-11-21"), "End_date": null, "Salary": 55000.00, "Job_title": "Education Specialist", "Specialty": ["All"] }]},
+					{ "_id": 73, "Zoo_name": "Singapore Zoo", "City": "Singapore", "Country": "Singapore", "Manager": "David Lee", "Ticket_price": 30.00,
+													"Animals":[19, 20, 21, 22, 23, 24],
+													"Visitors":[44, 48, 51, 63],
+													"Employees":[{ "First_name": "Sophia", "Last_name": "Shay", "Start_date": ISODate("2024-02-02"), "End_date": null, "Salary": 80000.00, "Job_title": "Research Scientist", "Specialty": ["Chimpanzee", "Panda", "Red Panda"]}, 
+																{ "First_name": "Liam", "Last_name": "Fader", "Start_date": ISODate("2023-03-12"), "End_date": null, "Salary": 68000.00, "Job_title": "Marketing Manager", "Specialty": []},
+																{ "First_name": "Ava", "Last_name": "Mor", "Start_date": ISODate("2022-01-18"), "End_date": ISODate("2024-05-31"), "Salary": 53000.00, "Job_title": "Veterinarian Technician", "Specialty": ["Lion", "Zebra", "Giraffe"]},
+																{ "First_name": "William", "Last_name": "Bar", "Start_date": ISODate("2021-09-09"), "End_date": null, "Salary": 70000.00, "Job_title": "Conservation Specialist", "Specialty": ["Emperor Penguin", "Bald Eagle", "Tasmanian Devil"]}]},
+					{ "_id": 74, "Zoo_name": "Pairi Daiza", "City": "Bruges", "Country": "Belgium", "Manager": "Marie Dubois", "Ticket_price": 38.00,
+													"Animals":[25, 26, 27, 28, 29, 30],
+													"Visitors":[43, 54, 57, 61],
+													"Employees":[{ "First_name": "Mia", "Last_name": "Hock", "Start_date": ISODate("2024-06-10"), "End_date": null, "Salary": 52000.00, "Job_title": "Intern", "Specialty": ["All"] }, 
+																{ "First_name": "Ethan", "Last_name": "Boosh", "Start_date": ISODate("2023-04-04"), "End_date": null, "Salary": 63000.00, "Job_title": "Animal Care Supervisor", "Specialty": ["Koala", "Kangaroo", "Wombat"]},
+																{ "First_name": "Olivia", "Last_name": "Stern", "Start_date": ISODate("2022-02-14"), "End_date": null, "Salary": 51000.00, "Job_title": "Gift Shop Manager", "Specialty": [] },
+																{ "First_name": "Noah", "Last_name": "Ben", "Start_date": ISODate("2021-10-21"), "End_date": null, "Salary": 75000.00, "Job_title": "Marketing Manager", "Specialty": []}]}])
+														
+---------------------------------------------------------------------------------------
+// שאילתות מכאן ואילך
+
+// הוספת מספר מבקרים
+db.Zoo.updateMany({}, {$set: {'Visitors_Counter':0}})
+
+// מציאת כמות המבקרים בכל גן חיות
+db.Zoo.find({'Visitors': {$exists:true}}, {'Visitors':1, 'Zoo_name':1}).forEach(function (doc){db.Zoo.updateOne({'Zoo_name': doc.Zoo_name}, {$inc:{'Visitors_Counter':doc.Visitors.length}})})
+
+/*												
+----------------- להוסיף טו אריי -------------------
+var zoos = db.Zoo.find({Zoo_name: {$exists:true}}, {'Zoo_name': 1, _id:0, 'Visitors_Counter': 1}).toArray()
+zoos[0]
+*/
+									
+// מציאת 3 העובדים שמרוויחים הכי הרבה
+db.Zoo.aggregate({$project: {'Employees.Salary':1}}, {$unwind:'$Employees'}, {$sort: {'Employees.Salary':-1}}, {$limit: 3})
+
+// מציאת כמות היונקים בדאטה
+db.Animals.find({type: 'Mammal'}).count()
+
+// מיון לפי גיל החיה, מהזקנה ביותר לצעירה ביותר, והצגת התוצאות בלי 5 החיות הזקנות ביותר
+db.Animals.find().sort({birth_date:1}).skip(5)
+
+// מציאת החיה הכי אהובה
+db.Animals.find({'animal_name': {$exists:true}}, {'animal_name':1, _id:0})
+
+// יצירת מערך של החיות הייחודיות שקיימות בכלל גני החיות השונים
+var unique_animals = db.Animals.aggregate([
+  {
+    $group: {
+      _id: "$animal_name",
+      unique_names: { $addToSet: "$animal_name" }
+    }
+  },
+  {
+    $project: {
+      _id: 1, // exclude the grouping identifier from the final result
+    }
+  }
+]).toArray()
+
+// ספירת כמות האנשים שאוהבים כל חיה
+
+var mapFunc1 = function() {
+	var animals = this.Favorite_animal
+	for (let i = 0; i < animals.length; i++) {
+		key = animals[i]
+		emit(key, 1)
+	}
+}
+
+var reduceFunc1 = function(key, values) {
+	return Array.sum(values)
+}
+
+db.Visitors.mapReduce(
+	mapFunc1,
+	reduceFunc1,
+	{
+		out : 'Favorite_animal_Counter'
+	}
+)
+
+// הצגת החיה האהובה ביותר
+db.Favorite_animal_Counter.find({value : {$gte : 2}}).sort({'value' : -1}).limit(1)
+// מיון לפי הא"ב, והצגת התוצאה הראשונה
+db.Favorite_animal_Counter.find({value : {$gte : 2}}).sort({'_id' : 1}).limit(1)
+
+// מחיקת ההתמחות האחרונה לכל עובד, בגן החיות סנטרל פארק ניו יורק ניו ניורק
+function addSpeciality() {
+	db.tempEmployees.drop()
+	db.createCollection('tempEmployees')
+	db.Zoo.find().forEach(function (zoo) {
+		zoo.Employees.forEach(function (Employee) {
+			if (zoo.Zoo_name == 'Central Park Zoo') {
+				db.tempEmployees.insert(Employee)
+				}
+		})
+	})
+	 db.tempEmployees.updateMany({}, {$pop: {Specialty : 1}})
+}
+
+addSpeciality()
+db.tempEmployees.find()
+db.tempEmployees.renameCollection('Employees Without last Specialty')
+
+// הוספת חיה אהובה - אנקדונדה - לכל אלו שביקרו בגני החיות אחרי ה-15.6.2024
+db.updateFavoriteAnimal.drop()
+db.createCollection('updateFavoriteAnimal')
+db.Visitors.find().forEach(function (docs){db.updateFavoriteAnimal.insertOne(docs)})
+
+db.updateFavoriteAnimal.remove({'Visit_date' : {$lte: new ISODate("2024-06-15")}})
+db.updateFavoriteAnimal.updateMany({}, {$push: {Favorite_animal: 'Anaconda'}})
+
+db.updateFavoriteAnimal.find()
+
+db.zoo.updateOne({'Zoo_name' : 'Central Park Zoo'}, {$push: {Favorite_animal: 'Anaconda'}})
+
+// Lookup
+db.Zoo.aggregate([
+	{
+		$lookup: 
+		{
+			from: 'Animals',
+			localField: 'Animals',
+			foreignField: '_id',
+			as: 'AnimalsInZoo',
+		}
+	},
+	{$unset: 'Animals'},
+	{
+		$lookup:
+		{
+			from: 'Visitors',
+			localField: 'Visitors',
+			foreignField: '_id',
+			as: 'VisitorsInZoo'
+		}
+	},
+	{$unset: 'Visitors'},
+	{$out: 'ZooFullTemp'}
+])
+
+// חישוב גיל ממוצע של החיות בכל גן חיות
+
+// גיל לכל חיה
+db.Animals.find().forEach(function(animal) {
+    var currentDate = new Date();
+    var birthDate = animal.birth_date;
+    var age = currentDate.getFullYear() - birthDate.getFullYear();
+    var monthDifference = currentDate.getMonth() - birthDate.getMonth();
+    if (monthDifference < 0 || (monthDifference === 0 && currentDate.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    db.Animals.updateOne(
+        { _id: animal._id },
+        { $set: { age: age } }
+    );
+});
+
+var mapFunc2 = function() {
+	key = this.Zoo_name
+	values = []
+	for (let i = 0; i < this.AnimalsInZoo.length; i++) {
+		values.push(this.AnimalsInZoo[i].age)
+	}
+	emit(key, values)
+}
+
+var reduceFunc2 = function(name, values) {
+	return Array.avg(values[0])
+}
+
+db.ZooFullTemp.mapReduce(
+	mapFunc2,
+	reduceFunc2,
+	{out : "map_reduce_2"}
+)
+
+db.map_reduce_2.find()
+
+// מציאת כל המטפלים בגן חיות מסויים של חיה לבחירה
+function zooSpecialityAnimal (zoo_name, animal) {
+	db.ZooFullTemp.aggregate([
+	  {
+		$match: {'Zoo_name': zoo_name} // Filter by zoo name
+	  },
+	  {
+		$project: {
+		  City: 1,
+		  Employees: 1
+		}
+	  },
+	  {
+		$unwind: '$Employees'
+	  },
+	  {
+		$unwind: '$Employees.Specialty'
+	  },
+	  {
+		$group: {
+		  _id: 'All', // Group by a constant value "All"
+		  count: {
+			$sum: {
+			  $cond: [ // Conditional sum based on specialty
+				{ $or: [ // Use $or for "All" or animal match
+				  { $eq: ['$Employees.Specialty', "All"] },
+				  { $eq: ['$Employees.Specialty', animal] }
+				] },
+				1, // Add 1 if either condition is true
+				0 // Otherwise add 0
+			  ]
+			}
+		  }
+		}
+	  },
+	  {
+		$project: {
+		  animal: animal, // Assuming "animal" variable holds the animal name
+		  count: '$count' // Rename the field for clarity
+		}
+	  },
+	  {
+		$out: 'result_zoo_animal_speciality' // Output to a new collection
+	  }
+	])
+}
+
+
+zooSpecialityAnimal('Tiergarten Schönbrunn', 'Lion')
+
+db.result_zoo_animal_speciality.find({}, {_id : 0})
+
+// מחיקת ההתמחות של כל העובדים שהתחילו לעבוד מחודש יוני 2023
+db.Zoo.aggregate([
+  {
+    $unwind: "$Employees" // Deconstruct the Employees array
+  },
+  {
+    $match: {
+      "Employees.Start_date": { $gt: ISODate("2023-06-01") } // Filter for start date
+    }
+  },
+  {
+    $project: {
+      _id: 0, // Exclude _id field (optional)
+      Zoo_name: 1, // Include zoo name if desired
+      Employee: "$Employees" // Project the entire employee document
+    }
+  },
+  {
+	$out: 'employees_after_june_2023'
+  }
+])
